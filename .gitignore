@@ -2,6 +2,7 @@ _ReSharper*/
 bin/
 debug/
 obj/
+packages/
 release/
 testresults/
 *.suo

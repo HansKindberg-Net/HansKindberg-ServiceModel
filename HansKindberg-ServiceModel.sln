@@ -20,17 +20,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", 
 		Properties\SolutionInfo.cs = Properties\SolutionInfo.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{0113A6D6-45A5-41E2-B79A-BDF54E1CF4A0}"
-	ProjectSection(SolutionItems) = preProject
-		Libraries\Moq.dll = Libraries\Moq.dll
-		Libraries\StructureMap.dll = Libraries\StructureMap.dll
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.ServiceModel.IoC.StructureMap", "HansKindberg.ServiceModel.IoC.StructureMap\HansKindberg.ServiceModel.IoC.StructureMap.csproj", "{D2EAD62C-CAF9-4011-A6B8-B8F07BFA6553}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.ServiceModel.IoC.StructureMap.Tests", "HansKindberg.ServiceModel.IoC.StructureMap.Tests\HansKindberg.ServiceModel.IoC.StructureMap.Tests.csproj", "{B1A904E2-2A66-4E7C-9CA8-312288E0BF0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg.ServiceModel.IoC.StructureMap.Sample", "HansKindberg.ServiceModel.IoC.StructureMap.Sample\HansKindberg.ServiceModel.IoC.StructureMap.Sample.csproj", "{7A81F3AC-3F78-4FA5-9B6D-0E83217EB26E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1C2C8A3A-63A7-4CE9-856E-81E3A2192E14}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
