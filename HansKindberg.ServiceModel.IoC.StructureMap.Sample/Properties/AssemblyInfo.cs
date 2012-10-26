@@ -1,9 +1,15 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("HansKindberg.ServiceModel.IoC.StructureMap.Sample for .NET Framework 4.0")]
-[assembly: AssemblyProduct("HansKindberg.ServiceModel.IoC.StructureMap.Sample")]
-[assembly: AssemblyDescription("Sample service with StructureMap support for System.ServiceModel.dll 4.0.0.0")]
+[assembly: AssemblyDescription("Sample service with StructureMap support.")]
 [assembly: Guid("59a52758-3f43-4e9e-8dbb-fe8f21bb9975")]
-[assembly: CLSCompliant(true)]
+// ReSharper disable CheckNamespace
+internal static class AssemblyInfo
+// ReSharper restore CheckNamespace
+{
+	#region Fields
+
+	internal const string AssemblyName = "HansKindberg.ServiceModel.IoC.StructureMap.Sample";
+
+	#endregion
+}

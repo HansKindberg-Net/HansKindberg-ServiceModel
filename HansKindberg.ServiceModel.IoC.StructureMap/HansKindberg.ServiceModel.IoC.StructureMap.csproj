@@ -55,9 +55,6 @@
     <Compile Include="..\CodeAnalysis\SolutionSuppressions.cs">
       <Link>CodeAnalysis\SolutionSuppressions.cs</Link>
     </Compile>
-    <Compile Include="..\Properties\HansKindberg.ServiceModel.IoC.StructureMap.SolutionInfo.cs">
-      <Link>Properties\HansKindberg.ServiceModel.IoC.StructureMap.SolutionInfo.cs</Link>
-    </Compile>
     <Compile Include="..\Properties\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
