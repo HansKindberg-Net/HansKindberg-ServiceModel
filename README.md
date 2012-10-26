@@ -18,7 +18,7 @@ To add a bootstrapper for your WCF project add the following to the config file:
 		&lt;/behaviors&gt;
 		&lt;extensions&gt;
 			&lt;behaviorExtensions&gt;
-				&lt;add name="bootstrapper" type="HansKindberg.ServiceModel.Configuration.BootstrapperElement, HansKindberg.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=8d368c2da66412b2" /&gt;
+				&lt;add name="bootstrapper" type="HansKindberg.ServiceModel.Configuration.BootstrapperElement, HansKindberg.ServiceModel, Version=X.X.X.X, Culture=neutral, PublicKeyToken=8d368c2da66412b2" /&gt;
 			&lt;/behaviorExtensions&gt;
 		&lt;/extensions&gt;
 	&lt;/system.serviceModel&gt;
