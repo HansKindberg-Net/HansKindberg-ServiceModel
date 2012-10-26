@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6DFE25B-BFC8-4931-88A3-E7D94449D402}"
 	ProjectSection(SolutionItems) = preProject
 		HansKindberg-ServiceModel.vsmdi = HansKindberg-ServiceModel.vsmdi
+		HansKindberg.snk = HansKindberg.snk
 		Local.testsettings = Local.testsettings
 		README.md = README.md
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings

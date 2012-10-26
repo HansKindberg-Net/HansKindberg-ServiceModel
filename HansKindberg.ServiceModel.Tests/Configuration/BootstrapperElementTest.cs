@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Configuration;
+using System.Globalization;
 using System.Reflection;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -28,6 +29,7 @@ namespace HansKindberg.ServiceModel.Tests.Configuration
 		{
 			BootstrapperElementTestBootstrapperElementMock bootstrapperElement = new BootstrapperElementTestBootstrapperElementMock {TypeName = typeof(BootstrapperElementTestBootstrapperMock).FullName + ", " + typeof(BootstrapperElementTestBootstrapperMock).Assembly.GetName().Name};
 			BootstrapperBehavior bootstrapperBehavior = (BootstrapperBehavior) bootstrapperElement.CreateBehavior();
+			Assert.IsNotNull(bootstrapperBehavior);
 		}
 
 		[TestMethod]
@@ -48,14 +50,14 @@ namespace HansKindberg.ServiceModel.Tests.Configuration
 					Assert.AreEqual("Could not create behavior.", exception.Message);
 
 					if(exception.InnerException == null || !(exception.InnerException is ConfigurationErrorsException))
-						Assert.Fail(string.Format("The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
+						Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
 
-					Assert.AreEqual("The type/typename for the bootstrapper can not be null or empty.", exception.InnerException.Message);
+					Assert.AreEqual("The type/type-name for the bootstrapper can not be null or empty.", exception.InnerException.Message);
 
 					throw;
 				}
 
-				Assert.Fail(string.Format("The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
+				Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
 			}
 		}
 
@@ -77,20 +79,20 @@ namespace HansKindberg.ServiceModel.Tests.Configuration
 					Assert.AreEqual("Could not create behavior.", exception.Message);
 
 					if(exception.InnerException == null || !(exception.InnerException is ConfigurationErrorsException))
-						Assert.Fail(string.Format("The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
+						Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
 
-					Assert.AreEqual("The type/typename for the bootstrapper can not be null or empty.", exception.InnerException.Message);
+					Assert.AreEqual("The type/type-name for the bootstrapper can not be null or empty.", exception.InnerException.Message);
 
 					throw;
 				}
 
-				Assert.Fail(string.Format("The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
+				Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
 			}
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(TargetInvocationException))]
-		public void CreateBehavior_ShouldThrowATargetInvocationException_WithAConfigurationErrorsExceptionAsInnerException_IfTheTypeNameIsTheNameOfANonExistingType()
+		public void CreateBehavior_ShouldThrowATargetInvocationException_WithAConfigurationErrorsExceptionAsInnerException_IfTheTypeNameIsTheNameOfANoneExistingType()
 		{
 			BootstrapperElementTestBootstrapperElementMock bootstrapperElement = new BootstrapperElementTestBootstrapperElementMock {TypeName = "SomeInvalidType"};
 			Assert.AreEqual("SomeInvalidType", bootstrapperElement.TypeName);
@@ -106,14 +108,14 @@ namespace HansKindberg.ServiceModel.Tests.Configuration
 					Assert.AreEqual("Could not create behavior.", exception.Message);
 
 					if(exception.InnerException == null || !(exception.InnerException is ConfigurationErrorsException))
-						Assert.Fail(string.Format("The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
+						Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
 
 					Assert.AreEqual("Could not get a type from the string representation \"SomeInvalidType\".", exception.InnerException.Message);
 
 					throw;
 				}
 
-				Assert.Fail(string.Format("The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
+				Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
 			}
 		}
 
@@ -135,14 +137,14 @@ namespace HansKindberg.ServiceModel.Tests.Configuration
 					Assert.AreEqual("Could not create behavior.", exception.Message);
 
 					if(exception.InnerException == null || !(exception.InnerException is ConfigurationErrorsException))
-						Assert.Fail(string.Format("The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
+						Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The inner exception should be of type \"{0}\".", typeof(ConfigurationErrorsException).FullName));
 
 					Assert.AreEqual("The bootstrapper type \"System.Object\" does not implement the interface \"HansKindberg.ServiceModel.IBootstrapper\".", exception.InnerException.Message);
 
 					throw;
 				}
 
-				Assert.Fail(string.Format("The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
+				Assert.Fail(string.Format(CultureInfo.InvariantCulture, "The thrown exception should be of type \"{0}\".", typeof(TargetInvocationException).FullName));
 			}
 		}
 

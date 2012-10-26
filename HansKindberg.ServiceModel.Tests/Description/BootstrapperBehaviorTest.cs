@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
 using System.ServiceModel;
@@ -48,19 +49,23 @@ namespace HansKindberg.ServiceModel.Tests.Description
 			byte endpointsPerChannelDispatcher = (byte) DateTime.Now.AddDays(10).Day;
 			int numberOfCalls = amountOfChannelDispatchers*endpointsPerChannelDispatcher;
 
-			new BootstrapperBehavior(bootstrapperMock.Object).ApplyDispatchBehavior(Mock.Of<ServiceDescription>(), CreateServiceHostBase(amountOfChannelDispatchers, endpointsPerChannelDispatcher));
-			bootstrapperMock.Verify(bootstrapper => bootstrapper.GetInstanceProvider(It.IsAny<Type>(), It.IsAny<IInstanceProvider>()), Times.Exactly(numberOfCalls));
+			using (ServiceHostBase serviceHost = CreateServiceHostBase(amountOfChannelDispatchers, endpointsPerChannelDispatcher))
+			{
+				new BootstrapperBehavior(bootstrapperMock.Object).ApplyDispatchBehavior(Mock.Of<ServiceDescription>(), serviceHost);
+				bootstrapperMock.Verify(bootstrapper => bootstrapper.GetInstanceProvider(It.IsAny<Type>(), It.IsAny<IInstanceProvider>()), Times.Exactly(numberOfCalls));
+			}
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(NullReferenceException))]
-		public void ApplyDispatchBehavior_ShouldThrowANullReferenceException_IfTheServiceHostBaseParameterIsNull()
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void ApplyDispatchBehavior_IfTheServiceHostBaseParameterIsNull_ShouldThrowAnArgumentNullException()
 		{
 			BootstrapperBehavior bootstrapperBehavior = new BootstrapperBehavior(new Mock<IBootstrapper>().Object);
 			bootstrapperBehavior.ApplyDispatchBehavior(new ServiceDescription(), null);
 		}
 
 		[TestMethod]
+		[SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HansKindberg.ServiceModel.Description.BootstrapperBehavior")]
 		public void Constructor_ShouldCallInitializeOnTheBootstrapper_IfTheBootstrapperParameterIsNotNull()
 		{
 			Mock<IBootstrapper> bootstrapperMock = new Mock<IBootstrapper>();
@@ -72,6 +77,7 @@ namespace HansKindberg.ServiceModel.Tests.Description
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
+		[SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HansKindberg.ServiceModel.Description.BootstrapperBehavior")]
 		public void Constructor_ShouldThrowAnArgumentNullException_IfTheBootstrapperParameterIsNull()
 		{
 			new BootstrapperBehavior(null);

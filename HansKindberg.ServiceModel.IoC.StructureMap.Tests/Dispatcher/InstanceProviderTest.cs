@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HansKindberg.ServiceModel.IoC.StructureMap.Dispatcher;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -13,14 +14,16 @@ namespace HansKindberg.ServiceModel.IoC.StructureMap.Tests.Dispatcher
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
-		public void Constructor_ShouldThrowAnArgumentNullException_IfTheContainerParameterIsNull()
+		[SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HansKindberg.ServiceModel.IoC.StructureMap.Dispatcher.InstanceProvider")]
+		public void Constructor_IfTheContainerParameterIsNull_ShouldThrowAnArgumentNullException()
 		{
 			new InstanceProvider(null, Mock.Of<Type>());
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
-		public void Constructor_ShouldThrowAnArgumentNullException_IfTheServiceTypeParameterIsNull()
+		[SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HansKindberg.ServiceModel.IoC.StructureMap.Dispatcher.InstanceProvider")]
+		public void Constructor_IfTheServiceTypeParameterIsNull_ShouldThrowAnArgumentNullException()
 		{
 			new InstanceProvider(Mock.Of<IContainer>(), null);
 		}

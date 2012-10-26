@@ -44,9 +44,9 @@ namespace HansKindberg.ServiceModel.Tests.Dispatcher
 	{
 		#region Methods
 
-		public void Dispose()
+		public virtual void Dispose()
 		{
-			throw new Exception("This should not be called.");
+			throw new InvalidOperationException("This should not be called.");
 		}
 
 		#endregion

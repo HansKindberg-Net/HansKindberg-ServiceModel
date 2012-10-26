@@ -39,6 +39,12 @@
     <CodeAnalysisRuleSet>..\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\HansKindberg.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
@@ -67,6 +73,9 @@
     <Compile Include="Service.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\HansKindberg.snk">
+      <Link>HansKindberg.snk</Link>
+    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

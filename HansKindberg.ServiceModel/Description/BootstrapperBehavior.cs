@@ -37,6 +37,12 @@ namespace HansKindberg.ServiceModel.Description
 
 		public virtual void ApplyDispatchBehavior(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase)
 		{
+			if(serviceDescription == null)
+				throw new ArgumentNullException("serviceDescription");
+
+			if(serviceHostBase == null)
+				throw new ArgumentNullException("serviceHostBase");
+
 			foreach (ChannelDispatcher channelDispatcher in serviceHostBase.ChannelDispatchers)
 			{
 				foreach (EndpointDispatcher endpointDispatcher in channelDispatcher.Endpoints)

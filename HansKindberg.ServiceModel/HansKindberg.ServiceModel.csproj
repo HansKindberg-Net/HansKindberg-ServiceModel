@@ -26,7 +26,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -34,12 +34,13 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>HansKindberg.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\HansKindberg.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,15 +64,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="HansKindberg.snk" />
-  </ItemGroup>
-  <ItemGroup>
     <CodeAnalysisDictionary Include="CodeAnalysis\AssemblyDictionary.xml" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CodeAnalysis\SolutionDictionary.xml">
       <Link>CodeAnalysis\SolutionDictionary.xml</Link>
     </CodeAnalysisDictionary>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\HansKindberg.snk">
+      <Link>HansKindberg.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

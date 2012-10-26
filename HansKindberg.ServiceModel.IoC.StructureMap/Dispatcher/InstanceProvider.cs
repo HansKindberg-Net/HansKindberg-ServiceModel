@@ -16,6 +16,7 @@ namespace HansKindberg.ServiceModel.IoC.StructureMap.Dispatcher
 
 		#region Constructors
 
+		[CLSCompliant(false)]
 		public InstanceProvider(IContainer container, Type serviceType)
 		{
 			if(container == null)
