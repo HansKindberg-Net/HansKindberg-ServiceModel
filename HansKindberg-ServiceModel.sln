@@ -33,6 +33,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1C2C8A
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{3B618908-943B-4E90-A7C2-FAA9542CB983}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis\Solution.ruleset = CodeAnalysis\Solution.ruleset
+		CodeAnalysis\Solution.Tests.ruleset = CodeAnalysis\Solution.Tests.ruleset
+		CodeAnalysis\SolutionDictionary.xml = CodeAnalysis\SolutionDictionary.xml
+		CodeAnalysis\SolutionSuppressions.cs = CodeAnalysis\SolutionSuppressions.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = HansKindberg-ServiceModel.vsmdi

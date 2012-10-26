@@ -26,7 +26,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +36,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="StructureMap">
@@ -47,6 +49,9 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CodeAnalysis\SolutionSuppressions.cs">
+      <Link>CodeAnalysis\SolutionSuppressions.cs</Link>
+    </Compile>
     <Compile Include="..\Properties\HansKindberg.ServiceModel.IoC.StructureMap.SolutionInfo.cs">
       <Link>Properties\HansKindberg.ServiceModel.IoC.StructureMap.SolutionInfo.cs</Link>
     </Compile>
@@ -54,6 +59,7 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CodeAnalysis\AssemblySuppressions.cs" />
     <Compile Include="Data\FirstRepository.cs" />
     <Compile Include="Data\IFirstRepository.cs" />
     <Compile Include="Data\SecondRepository.cs" />
@@ -76,6 +82,12 @@
       <Project>{0E683C88-794B-42F8-B45E-123A21D0F9A4}</Project>
       <Name>HansKindberg.ServiceModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CodeAnalysis\SolutionDictionary.xml">
+      <Link>CodeAnalysis\SolutionDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+    <CodeAnalysisDictionary Include="CodeAnalysis\AssemblyDictionary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

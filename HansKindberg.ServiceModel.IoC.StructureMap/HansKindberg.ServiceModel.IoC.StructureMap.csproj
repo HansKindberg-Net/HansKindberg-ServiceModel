@@ -24,7 +24,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -33,7 +34,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\CodeAnalysis\Solution.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -50,12 +52,16 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CodeAnalysis\SolutionSuppressions.cs">
+      <Link>CodeAnalysis\SolutionSuppressions.cs</Link>
+    </Compile>
     <Compile Include="..\Properties\HansKindberg.ServiceModel.IoC.StructureMap.SolutionInfo.cs">
       <Link>Properties\HansKindberg.ServiceModel.IoC.StructureMap.SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="..\Properties\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="CodeAnalysis\AssemblySuppressions.cs" />
     <Compile Include="Dispatcher\InstanceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +74,12 @@
       <Project>{0E683C88-794B-42F8-B45E-123A21D0F9A4}</Project>
       <Name>HansKindberg.ServiceModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\CodeAnalysis\SolutionDictionary.xml">
+      <Link>CodeAnalysis\SolutionDictionary.xml</Link>
+    </CodeAnalysisDictionary>
+    <CodeAnalysisDictionary Include="CodeAnalysis\AssemblyDictionary.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
